@@ -3,9 +3,25 @@ var baseUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
 var city = 'Chicago';
 var units = '&units=imperial';
 var APIKey = '&appid=e1a4a8808d7f6de7333f8ac6e7ef2b5d';
-
 var apiUrl= baseUrl + city + units + APIKey;
 console.log(apiUrl);
+var submitButton = document.querySelector('#submitButton');
+var searchTerm = document.querySelector('#searchTerm');
+
+var searchButtonHandler = function(event){
+    event.preventDefault();
+    console.log('Button clicked!');
+    
+    if(searchTerm.value){
+        console.log(searchTerm.value);
+    }
+    else{
+        console.log('Please enter search term')
+    }
+}
+
+submitButton.addEventListener('click', searchButtonHandler);
+
 
 var getWeather = function(){
     fetch(apiUrl)
