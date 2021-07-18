@@ -6,6 +6,10 @@ header{
     padding: .5rem;
 }
 
+#todayWeatherList{
+    list-style-type: none;
+}
+
 
 
 /* .form-control{
