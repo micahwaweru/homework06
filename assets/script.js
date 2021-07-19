@@ -68,7 +68,7 @@ laBtn.addEventListener('click', laBtnHandler);
 
 var getWeather = function(city){
   //todayWeatherList.reset();
-  var baseUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
+  var baseUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
   //var city = 'Chicago';
   var units = '&units=imperial';
   var daily = '&daily.temp.day'
