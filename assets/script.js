@@ -5,6 +5,12 @@ var searchTerm = document.querySelector('#searchTerm');
 var todayWeatherList = document.querySelector('#todayWeatherList');
 var heroHead = document.querySelector('#heroHead');
 var dateSub = document.querySelector('#dateSub');
+var defaultButtons = document.querySelector('.defaultButtons');
+var chicagoBtn = document.querySelector('#Chicago');
+var dallasBtn = document.querySelector('#Dallas');
+var nyBtn = document.querySelector('#NewYork');
+var laBtn = document.querySelector('#LosAngeles');
+var resetBtn = document.querySelector('#resetBtn');
 
 var searchButtonHandler = function(event){
     event.preventDefault();
@@ -25,8 +31,43 @@ var searchButtonHandler = function(event){
 
 submitButton.addEventListener('click', searchButtonHandler);
 
+var resetBtnHandler = function(){
+  todayWeatherList.reset();
+}
+
+resetBtn.addEventListener('click', resetBtnHandler);
+
+var chicagoBtnHandler = function(){
+  console.log('Chicago button clicked!');
+  var chicago = 'Chicago';
+  getWeather(chicago);
+}
+
+var dallasBtnHandler = function(){
+  console.log('Dallas button clicked!');
+  var dallas = 'Dallas';
+  getWeather(dallas);
+}
+
+var nyBtnHandler = function(){
+  console.log('NY button clicked!');
+  var newyork = 'New York';
+  getWeather(newyork);
+}
+
+var laBtnHandler = function(){
+  console.log('LA button clicked!');
+  var losangeles = 'Los Angeles';
+  getWeather(losangeles);
+}
+
+chicagoBtn.addEventListener('click', chicagoBtnHandler);
+dallasBtn.addEventListener('click', dallasBtnHandler);
+nyBtn.addEventListener('click', nyBtnHandler);
+laBtn.addEventListener('click', laBtnHandler);
 
 var getWeather = function(city){
+  //todayWeatherList.reset();
   var baseUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
   //var city = 'Chicago';
   var units = '&units=imperial';
@@ -43,6 +84,8 @@ var getWeather = function(city){
             response.status);
           return;
         }
+
+        
   
         // Examine the text in the response
         response.json().then(function(data) {
@@ -66,7 +109,7 @@ var getWeather = function(city){
           todayWeatherList.appendChild(humidityItem);
           todayWeatherList.appendChild(windItem);
 
-
+            
         });
       }
     )
